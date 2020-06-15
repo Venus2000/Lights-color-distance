@@ -25,7 +25,9 @@
     -2.4 TFT Resistive Touch HMI Screen
     -ไฟRGB แสดงทั้งหมดสามสี
 ### โครงสร้างพื้นฐาน
-
+![flowchart](https://user-images.githubusercontent.com/61343632/84478874-361e3580-acbc-11ea-9d88-d1005443c76d.jpg)
 ### ระบบการทำงาน
+![diagram](https://user-images.githubusercontent.com/61343632/84479649-83e76d80-acbd-11ea-93c8-f67b12aa7507.jpg)
+
 
 
