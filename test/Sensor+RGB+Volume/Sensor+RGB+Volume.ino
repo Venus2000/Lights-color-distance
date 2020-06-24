@@ -7,6 +7,9 @@ const int LED3 = 6;
 int duration = 0;
 int distance = 0;
 
+int resis =A0;
+int Value;
+int Voltage;
 void setup() {
   pinMode(trig, OUTPUT);
   pinMode(echo, INPUT);
@@ -14,28 +17,32 @@ void setup() {
   pinMode(LED2, OUTPUT);
   pinMode(LED3, OUTPUT);
   Serial.begin(9600);
+  pinMode(resis,INPUT);
 }
 void loop() {
   digitalWrite(trig, HIGH);
   delayMicroseconds(1000);
   digitalWrite(trig, LOW);
 
+  Voltage = analogRead(resis);
+  Value = (64./1023.)*Voltage;
+
   duration = pulseIn(echo, HIGH);
   distance = (duration*0.034) / 2;
 
   Serial.println(distance);
   if (distance <= 10) {
-    analogWrite(LED2, 32);
     analogWrite(LED1, 0);
+    analogWrite(LED2, Value);
     analogWrite(LED3, 0);
   }
   else if (distance <= 20 && distance > 10) {
-    analogWrite(LED1, 32);
-    analogWrite(LED2, 15);
+    analogWrite(LED1, Value);
+    analogWrite(LED2, Value/2);
     analogWrite(LED3, 0);
   } 
   else if (distance <= 60 && distance > 20) {
-    analogWrite(LED1, 32);
+    analogWrite(LED1, Value);
     analogWrite(LED2, 0);
     analogWrite(LED3, 0);
   } 

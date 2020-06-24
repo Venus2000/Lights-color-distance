@@ -1,6 +1,6 @@
 int resis =A0;
 int Value;
-float Voltage;
+int Voltage;
 
 void setup() {
     pinMode(resis,INPUT);
@@ -9,8 +9,8 @@ void setup() {
 
 void loop() {
     Value = analogRead(resis);
-    Voltage = (5./1023.)*Value;
+    Voltage = (32./1023.)*Value;
     Serial.println (Voltage);
-    Serial.println (Value);
+    //Serial.println (Value);
     delay(250);
 }
