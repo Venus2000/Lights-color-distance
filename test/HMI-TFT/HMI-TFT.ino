@@ -19,13 +19,13 @@ int Voltage;
 void setup() {
   Serial.begin(9600);
   myNextion.init();
-  //pinMode(11, OUTPUT);
+  
   pinMode(trig, OUTPUT);
   pinMode(echo, INPUT);
   pinMode(LED1, OUTPUT);
   pinMode(LED2, OUTPUT);
   pinMode(LED3, OUTPUT);
-  pinMode(resis,INPUT);
+  pinMode(resis,INPUT);   
 }
 
 void loop() {
@@ -37,7 +37,7 @@ void loop() {
   Value = (64./1023.)*Voltage;
 
   duration = pulseIn(echo, HIGH);
-  distance = (duration*0.034) / 2;
+  distance = (duration*0.034) / 2; 
 
   Serial.println(distance);
   myNextion.setComponentText("Distance", String(distance));
